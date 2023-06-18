@@ -11,12 +11,20 @@ export const Container = styled.section`
 export const TopNavigation = styled.div`
   display: flex;
   width: 100%;
-  height: 5%;
+  height: 6%;
 `;
 
 export const Content = styled.div`
   display: flex;
+  justify-content: center;
   width: 100%;
-  height: 95%;
-  background-color: green;
+  height: 94%;
+`;
+
+
+export const ProductsContainer = styled.div`
+  display: flex;
+  width: 100%;
+  height: fit-content;
+
 `;

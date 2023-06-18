@@ -1,15 +1,22 @@
 import React from "react";
 import Header from "../../containers/Header";
 
-import { Container, Content, TopNavigation } from "./styles";
+import ProductList from "../../containers/ProductList";
+
+import { Container, Content, TopNavigation, ProductsContainer } from "./styles";
 
 const Home: React.FC = () => {
   return (
     <Container>
       <TopNavigation>
-        <Header/>
+        <Header />
       </TopNavigation>
-      <Content></Content>
+
+      <Content>
+        <ProductsContainer>
+          <ProductList />
+        </ProductsContainer>
+      </Content>
     </Container>
   );
 };

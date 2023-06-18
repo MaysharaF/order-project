@@ -11,7 +11,6 @@ export const Container = styled.header`
     font-size: 1rem;
     color: var(--dark-tone-ink);
   }
-  
 `;
 
 export const ActionContent = styled.div`
@@ -21,21 +20,29 @@ export const ActionContent = styled.div`
   align-items: center;
   justify-content: space-between;
 
+
   a {
+    position: relative;
     text-decoration: none;
     color: var(--dark-tone-ink);
 
-    :after {
+    &.active {
+      font-weight: bold;
+    }
+
+    &::before {
       content: "";
       position: absolute;
-      width: 100%;
-      transform: scaleX(0);
+      left: 0;
+      bottom: -2px;
+      width: 0;
       height: 2px;
-      bottom: 0px;
-      left: 0px;
-      background-color: var(--white);
-      transform-origin: right bottom;
-      transition: transform 0.25s ease-out 0s;
+      background-color: var(--dark-tone-ink);
+      transition: width 0.3s ease-in-out;
+    }
+
+    &:hover::before {
+      width: 100%;
     }
   }
 

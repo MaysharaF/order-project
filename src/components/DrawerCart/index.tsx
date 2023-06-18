@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Book1 from "../../assets/images/orgulho_e_preconceito.jpg";
 
 import { Container, Content, ProductList, ProductCard } from "./styles";
+import { Product } from "../../models/Product";
 
 type IProps = {
   onClose: () => void;
@@ -10,6 +11,16 @@ type IProps = {
 };
 
 const DrawerCart: React.FC<IProps> = ({ onClose, open }) => {
+  const [productsCart, setProductsCart] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const existingCartItems = localStorage.getItem("cartItems");
+    if (existingCartItems) {
+      const parsedCartItems = JSON.parse(existingCartItems);
+      setProductsCart(parsedCartItems);
+    }
+  }, []);
+
   return (
     <Container
       title="Seu carrinho"
@@ -18,19 +29,22 @@ const DrawerCart: React.FC<IProps> = ({ onClose, open }) => {
       open={open}
     >
       <ProductList>
-        <ProductCard>
-          <div className="image-card">
-            <img src={Book1} alt="" />
-          </div>
+       {productsCart.map(product => (
 
-          <div className="info-card">
-            <span>Orgulho e Preconceito</span>
-            <span>R$ 79,00</span>
-            <span>Quantidade: 1</span>
+         <ProductCard key={product.id}>
+         <div className="image-card">
+           <img src={Book1} alt="" />
+         </div>
 
-            <span className="remove-item">remover item</span>
-          </div>
-        </ProductCard>
+         <div className="info-card">
+           <span>{product.title}</span>
+           <span>R$ {product.price}</span>
+           <span>Quantidade: {product.quantity}</span>
+
+           <span className="remove-item">remover item</span>
+         </div>
+       </ProductCard>
+       ))}
       </ProductList>
 
       <Content>

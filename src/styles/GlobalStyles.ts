@@ -9,7 +9,7 @@ export default createGlobalStyle`
   }
 
   html, body, #root {
-    background: var(--dark-tone-ink);
+    background: var(--white);
     max-height: 100vh;
     max-width: 100vw;
     width: 100%;

@@ -42,7 +42,7 @@ const ProductList: React.FC = () => {
           id: 1,
           observation:
             "Edição Português | por Jane Austen e Roberto Leal Ferreira | 12 abr. 2018",
-          price: "79,00",
+          price: 79,
           title: "Orgulho e Preconceito",
           quantity: 0,
         }}

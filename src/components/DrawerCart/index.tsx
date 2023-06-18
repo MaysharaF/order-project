@@ -40,6 +40,8 @@ const DrawerCart: React.FC<IProps> = ({ onClose, open }) => {
     setProductsCart(filteredCartItems);
   };
 
+  const cartTotal = productsCart.reduce((total, product) => total + (product.price * product.quantity), 0);
+
   return (
     <Container
       title="Seu carrinho"
@@ -68,7 +70,7 @@ const DrawerCart: React.FC<IProps> = ({ onClose, open }) => {
 
       <Content>
         <div className="total-label">
-          <label>Subtotal: <span className="total">R$ 79,00</span></label>
+          <label>Subtotal: <span className="total">R$ {cartTotal.toFixed(2)}</span></label>
         </div>
         <button>Finalizar Compra</button>
       </Content>

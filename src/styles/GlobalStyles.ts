@@ -25,6 +25,9 @@ export default createGlobalStyle`
 
   :root{
     --dark-tone-ink: #121212;
+    --washed-black: #212529;
     --white: #ffffff;
+    --lynx-white: #f7f7f7;
+    --pompeii-ash: #6c757d;
   }
 `

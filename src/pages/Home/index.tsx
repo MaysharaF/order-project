@@ -11,7 +11,7 @@ const Home: React.FC = () => {
       <TopNavigation>
         <Header />
       </TopNavigation>
-
+     
       <Content>
         <ProductsContainer>
           <ProductList />

@@ -1,9 +1,17 @@
-import React from 'react';
+import React from "react";
+import Header from "../../containers/Header";
 
- import { Container } from './styles';
+import { Container, Content, TopNavigation } from "./styles";
 
 const Home: React.FC = () => {
-  return <Container>hello</Container>
-}
+  return (
+    <Container>
+      <TopNavigation>
+        <Header/>
+      </TopNavigation>
+      <Content></Content>
+    </Container>
+  );
+};
 
 export default Home;

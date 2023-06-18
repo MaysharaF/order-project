@@ -19,21 +19,8 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
-  h1{
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--white);
-  }
-
-  h2{
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--white);
-  }
-
-  span, p{
-    font-size: 1rem;
-    color: var(--white);
+  button {
+    cursor: pointer;
   }
 
   :root{

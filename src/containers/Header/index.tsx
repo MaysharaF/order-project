@@ -4,7 +4,7 @@ import React from 'react';
 
 const Header: React.FC = () => {
   return <Container>
-    <h2>Olá, <span>Mayshara</span></h2>
+    <h2>Olá, Mayshara</h2>
 
     <ActionContent>
       <a href="#">Meus pedidos</a>

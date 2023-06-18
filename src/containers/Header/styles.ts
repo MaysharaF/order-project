@@ -9,11 +9,9 @@ export const Container = styled.header`
 
   h2 {
     font-size: 1rem;
-    color: var(--white);
-    span {
-      color: #8257e5;
-    }
+    color: var(--dark-tone-ink);
   }
+  
 `;
 
 export const ActionContent = styled.div`
@@ -25,7 +23,7 @@ export const ActionContent = styled.div`
 
   a {
     text-decoration: none;
-    color: var(--white);
+    color: var(--dark-tone-ink);
 
     :after {
       content: "";
@@ -45,8 +43,8 @@ export const ActionContent = styled.div`
     border: none;
     padding: 2% 5%;
     border-radius: 20px;
-    background-color: var(--white);
-    color: var(--dark-tone-ink);
+    background-color: var(--dark-tone-ink);
+    color: var(--white);
     font-weight: bold;
   }
 `;

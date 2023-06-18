@@ -1,7 +1,5 @@
 import React from "react";
 
-import Book1 from "../../assets/images/orgulho_e_preconceito.jpg";
-
 import { Product } from "../../models/Product";
 
 import { Container, ImageProduct, InfoProduct } from "./styles";
@@ -15,7 +13,7 @@ const ProductCard: React.FC<IProps> = ({ product, addToCart }) => {
   return (
     <Container key={product.id}>
       <ImageProduct>
-        <img src={Book1} alt="" />
+        <img src={product.url_image} alt={`Capa do livro ${product.title}`} />
       </ImageProduct>
 
       <InfoProduct>

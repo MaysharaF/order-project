@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import Book1 from "../../assets/images/orgulho_e_preconceito.jpg";
-
 import { Container, Content, ProductList, ProductCard } from "./styles";
 import { Product } from "../../models/Product";
 
@@ -58,7 +56,10 @@ const DrawerCart: React.FC<IProps> = ({ onClose, open }) => {
             {productsCart.map((product) => (
               <ProductCard key={product.id}>
                 <div className="image-card">
-                  <img src={Book1} alt="" />
+                  <img
+                    src={product.url_image}
+                    alt={`Capa do livro ${product.title}`}
+                  />
                 </div>
 
                 <div className="info-card">

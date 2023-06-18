@@ -45,6 +45,7 @@ const ProductList: React.FC = () => {
           price: 79,
           title: "Orgulho e Preconceito",
           quantity: 0,
+          url_image: "https://m.media-amazon.com/images/I/51lC3sHYyML._SX328_BO1,204,203,200_.jpg"
         }}
         addToCart={addToCart}
       />

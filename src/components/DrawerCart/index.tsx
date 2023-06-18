@@ -26,21 +26,24 @@ const DrawerCart: React.FC<IProps> = ({ onClose, open }) => {
       if (product.id === id) {
         const updatedQuantity = product.quantity - 1;
         if (updatedQuantity === 0) {
-          return null; 
+          return null;
         } else {
-          return { ...product, quantity: updatedQuantity }; 
+          return { ...product, quantity: updatedQuantity };
         }
       }
       return product;
     });
-  
+
     const filteredCartItems = updatedCartItems.filter(Boolean) as Product[];
-  
+
     localStorage.setItem("cartItems", JSON.stringify(filteredCartItems));
     setProductsCart(filteredCartItems);
   };
 
-  const cartTotal = productsCart.reduce((total, product) => total + (product.price * product.quantity), 0);
+  const cartTotal = productsCart.reduce(
+    (total, product) => total + product.price * product.quantity,
+    0
+  );
 
   return (
     <Container
@@ -50,27 +53,39 @@ const DrawerCart: React.FC<IProps> = ({ onClose, open }) => {
       open={open}
     >
       <ProductList>
-       {productsCart.map(product => (
+        {productsCart.length !== 0 ? (
+          <>
+            {productsCart.map((product) => (
+              <ProductCard key={product.id}>
+                <div className="image-card">
+                  <img src={Book1} alt="" />
+                </div>
 
-         <ProductCard key={product.id}>
-         <div className="image-card">
-           <img src={Book1} alt="" />
-         </div>
+                <div className="info-card">
+                  <span>{product.title}</span>
+                  <span>R$ {product.price}</span>
+                  <span>Quantidade: {product.quantity}</span>
 
-         <div className="info-card">
-           <span>{product.title}</span>
-           <span>R$ {product.price}</span>
-           <span>Quantidade: {product.quantity}</span>
-
-           <span className="remove-item" onClick={() => handleRemoveItem(product.id)}>remover item</span>
-         </div>
-       </ProductCard>
-       ))}
+                  <span
+                    className="remove-item"
+                    onClick={() => handleRemoveItem(product.id)}
+                  >
+                    remover item
+                  </span>
+                </div>
+              </ProductCard>
+            ))}
+          </>
+        ) : (
+          <h3>Seu carrinho está vazio</h3>
+        )}
       </ProductList>
 
       <Content>
         <div className="total-label">
-          <label>Subtotal: <span className="total">R$ {cartTotal.toFixed(2)}</span></label>
+          <label>
+            Subtotal: <span className="total">R$ {cartTotal.toFixed(2)}</span>
+          </label>
         </div>
         <button>Finalizar Compra</button>
       </Content>

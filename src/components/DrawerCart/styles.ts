@@ -28,6 +28,13 @@ export const ProductList = styled.div`
   flex-direction: column;
   width: 100%;
   height: 80%;
+
+  h3 {
+    text-align: center;
+    font-weight: lighter;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+  }
 `;
 
 export const ProductCard = styled.div`

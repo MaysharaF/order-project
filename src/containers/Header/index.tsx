@@ -7,9 +7,10 @@ const Header: React.FC = () => {
     <h2>Olá, Mayshara</h2>
 
     <ActionContent>
-      <a href="#">Meus pedidos</a>
+      <a href="/">Ver produtos</a>
+      <a href="/order-list">Meus pedidos</a>
 
-      <button>Nova compra</button>
+      <button>Carrinho</button>
     </ActionContent>
   </Container>
 }

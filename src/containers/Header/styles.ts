@@ -16,7 +16,7 @@ export const Container = styled.header`
 
 export const ActionContent = styled.div`
   display: flex;
-  width: 15%;
+  width: 20%;
   height: 100%;
   align-items: center;
   justify-content: space-between;

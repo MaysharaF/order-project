@@ -19,7 +19,26 @@ const DrawerCart: React.FC<IProps> = ({ onClose, open }) => {
       const parsedCartItems = JSON.parse(existingCartItems);
       setProductsCart(parsedCartItems);
     }
-  }, []);
+  }, [open]);
+
+  const handleRemoveItem = (id: number) => {
+    const updatedCartItems: (Product | null)[] = productsCart.map((product) => {
+      if (product.id === id) {
+        const updatedQuantity = product.quantity - 1;
+        if (updatedQuantity === 0) {
+          return null; 
+        } else {
+          return { ...product, quantity: updatedQuantity }; 
+        }
+      }
+      return product;
+    });
+  
+    const filteredCartItems = updatedCartItems.filter(Boolean) as Product[];
+  
+    localStorage.setItem("cartItems", JSON.stringify(filteredCartItems));
+    setProductsCart(filteredCartItems);
+  };
 
   return (
     <Container
@@ -41,7 +60,7 @@ const DrawerCart: React.FC<IProps> = ({ onClose, open }) => {
            <span>R$ {product.price}</span>
            <span>Quantidade: {product.quantity}</span>
 
-           <span className="remove-item">remover item</span>
+           <span className="remove-item" onClick={() => handleRemoveItem(product.id)}>remover item</span>
          </div>
        </ProductCard>
        ))}

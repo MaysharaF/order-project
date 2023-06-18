@@ -17,6 +17,7 @@ export default createGlobalStyle`
     font: 400 1rem "Roboto", sans-serif;
     -webkit-text-size-adjust: none;
     -webkit-font-smoothing: antialiased;
+
   }
 
   button {
@@ -29,5 +30,6 @@ export default createGlobalStyle`
     --white: #ffffff;
     --lynx-white: #f7f7f7;
     --pompeii-ash: #6c757d;
+    
   }
 `

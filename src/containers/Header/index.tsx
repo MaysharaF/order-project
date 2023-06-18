@@ -1,9 +1,14 @@
-import React from 'react';
+import React, {Dispatch, SetStateAction} from 'react';
 import { useLocation } from 'react-router-dom';
 
  import { Container, ActionContent } from './styles';
 
-const Header: React.FC = () => {
+ interface IProps {
+  setVisible: Dispatch<SetStateAction<boolean>>;
+ }
+
+const Header: React.FC<IProps> = ({setVisible}) => {
+  
   const location = useLocation();
 
   return <Container>
@@ -13,7 +18,7 @@ const Header: React.FC = () => {
       <a href="/" className={location.pathname === '/' ? 'active' : ''}>Ver produtos</a>
       <a href="/order-list" className={location.pathname === '/order-list' ? 'active' : ''}>Meus pedidos</a>
 
-      <button>Carrinho</button>
+      <button onClick={() => setVisible(true)}>Carrinho</button>
     </ActionContent>
   </Container>
 }

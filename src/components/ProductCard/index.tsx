@@ -1,28 +1,34 @@
 import React from "react";
 
-import Book1 from '../../assets/images/orgulho_e_preconceito.jpg'
+import Book1 from "../../assets/images/orgulho_e_preconceito.jpg";
+
+import { Product } from "../../models/Product";
 
 import { Container, ImageProduct, InfoProduct } from "./styles";
 
-const ProductCard: React.FC = () => {
+interface IProps {
+  product: Product;
+  addToCart: (product: Product) => void
+}
+
+const ProductCard: React.FC<IProps> = ({ product, addToCart }) => {
   return (
-    <Container>
+    <Container key={product.id}>
       <ImageProduct>
         <img src={Book1} alt="" />
       </ImageProduct>
 
       <InfoProduct>
         <div className="info-product">
-          <span className="name-product">Orgulho e preconceito</span>
-          <span className="price-product">R$79,00</span>
+          <span className="name-product">{product.title}</span>
+          <span className="price-product"> R$ {product.price}</span>
         </div>
-        <p className="observation">Edição Português | por Jane Austen e Roberto Leal Ferreira | 12 abr. 2018</p>
-      
-        <button>
-         Adicionar ao carrinho
-        </button>
+        <p className="observation">
+          {product.observation}
+        </p>
+
+        <button onClick={() => addToCart(product)}>Adicionar ao carrinho</button>
       </InfoProduct>
-      
     </Container>
   );
 };

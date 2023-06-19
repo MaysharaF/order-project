@@ -1,4 +1,5 @@
 require("dotenv").config();
+require("./app/database");
 const { app } = require("./app");
 
 function boostrap() {

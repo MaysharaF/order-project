@@ -7,7 +7,8 @@ No repositório existem o client e o server
 Para inicializar primeiro o server com os comandos
 
 ```
-
+yarn --> para baixar as dependências
+yarn dev
 ```
 
 ## Client

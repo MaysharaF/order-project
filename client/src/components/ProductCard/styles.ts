@@ -15,7 +15,7 @@ export const ImageProduct = styled.div`
   align-items: center;
   width: 100%;
   height: 70%;
-
+  background-color: var(--lynx-white);
   img {
     width: 100%;
     height: 100%;
@@ -28,7 +28,7 @@ export const InfoProduct = styled.div`
   flex-direction: column;
   width: 100%;
   height: 30%;
-  background-color: var(--lynx-white);
+  margin-top: 1%;
   padding: 1%;
 
   .info-product {

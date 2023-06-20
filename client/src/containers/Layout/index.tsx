@@ -1,31 +1,33 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 
-import Header from '../Header';
+import Header from "../Header";
 
- import { Container, TopNavigation, Page } from './styles';
+import { Container, TopNavigation, Page } from "./styles";
 
-import DrawerCart from '../../components/DrawerCart';
+import DrawerCart from "../../components/DrawerCart";
 
- type IProps = {
-    children: React.ReactNode;
-  };
+type IProps = {
+  children: React.ReactNode;
+};
 
 const Layout: React.FC<IProps> = ({ children }) => {
   const [visible, setVisible] = useState(false);
 
-  return <Container>
-     <TopNavigation>
-        <Header setVisible={setVisible}/>
+  return (
+    <Container>
+      <TopNavigation>
+        <Header setVisible={setVisible} />
       </TopNavigation>
 
-      <Page>
-      {children}
-      </Page>
+      <Page>{children}</Page>
 
-      <DrawerCart onClose={() => setVisible(false)} open={visible}/>
-     
-     
-  </Container>
-}
+      <DrawerCart
+        onClose={() => setVisible(false)}
+        open={visible}
+        setOpen={setVisible}
+      />
+    </Container>
+  );
+};
 
 export default Layout;

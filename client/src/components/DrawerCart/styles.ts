@@ -107,5 +107,9 @@ export const Content = styled.div`
     border-radius: 50px;
     border: none;
     font-size: 1rem;
+
+    &:disabled {
+      opacity: 0.5;
+    }
   }
 `;

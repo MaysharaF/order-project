@@ -4,6 +4,7 @@ import { Product } from "../../models/Product";
 import api from "../../services/api";
 
 import { Container, Content, ProductList, ProductCard } from "./styles";
+import { Alert, message } from "antd";
 
 type IProps = {
   onClose: () => void;
@@ -77,6 +78,8 @@ const DrawerCart: React.FC<IProps> = ({ onClose, open, setOpen }) => {
       setProductsCart([]);
       localStorage.setItem("cartItems", "[]");
       setOpen(false);
+
+      message.success("Pedido cadastrado com sucesso");
     } catch (error) {
       console.log("erro ao cadastrar pedido");
     } finally {

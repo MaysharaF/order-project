@@ -11,33 +11,22 @@ interface IProps {
 }
 
 const ProductList: React.FC<IProps> = ({ products }) => {
-  const [cartItems, setCartItems] = useState<Product[]>([]);
-
   const addToCart = (product: Product) => {
-    const existingItem = cartItems.find((item) => item.id === product.id);
+    const existingItem = JSON.parse(
+      localStorage.getItem("cartItems") || "[]"
+    ) as Product[];
 
-    // if (existingItem) {
-    //   const updatedCartItems = cartItems.map((item) =>
-    //     item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-    //   );
+    const itemIndex = existingItem.findIndex((item) => item.id === product.id);
 
-    //   localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-    //   setCartItems(updatedCartItems);
-    // } else {
-    //   const updatedCartItems = [...cartItems, { ...product, quantity: 1 }];
+    if (itemIndex >= 0) {
+      existingItem[itemIndex].quantity += 1;
 
-    //   localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-    //   setCartItems(updatedCartItems);
-    // }
-  };
-
-  useEffect(() => {
-    const existingCartItems = localStorage.getItem("cartItems");
-    if (existingCartItems) {
-      const parsedCartItems = JSON.parse(existingCartItems);
-      setCartItems(Array.from(parsedCartItems));
+      localStorage.setItem("cartItems", JSON.stringify(existingItem));
+    } else {
+      const updatedCartItems = [...existingItem, { ...product, quantity: 1 }];
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
     }
-  }, []);
+  };
 
   return (
     <Container>

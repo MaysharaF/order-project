@@ -24,8 +24,20 @@ const DrawerCart: React.FC<IProps> = ({ onClose, open }) => {
       if (product.id === id) {
         const updatedQuantity = product.quantity - 1;
         if (updatedQuantity === 0) {
+          setProductsCart((oldValue) =>
+            oldValue.filter((product) => product.id === id)
+          );
           return null;
         } else {
+          setProductsCart((oldValue) =>
+            oldValue.map((product) => {
+              if (product.id === id) {
+                product.quantity -= 1;
+              }
+
+              return product;
+            })
+          );
           return { ...product, quantity: updatedQuantity };
         }
       }
